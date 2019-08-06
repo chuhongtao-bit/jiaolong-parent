@@ -33,7 +33,7 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("login")
     public ResponseResult tologin(@RequestBody Map<String,Object> map)throws LoginException {
-        System.out.println("进来了登录后台");
+        System.out.println("进来了登录后台了");
         System.out.println(map.get("loginname").toString()+"88888888888888888888");
         System.out.println(map.get("password").toString()+"88888888888888888888");
 
