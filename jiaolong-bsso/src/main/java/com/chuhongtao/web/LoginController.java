@@ -53,7 +53,7 @@ public class LoginController {
                   String token=JWTUtils.generateToken(userinfo);//将用户信息使用JWT进行加密
                   responseResult.setToken(token);//将加密信息存入自定义实体类中
                   redisTemplate.opsForValue().set("USERINFO"+user.getId().toString(),token);//将token存入redis
-                 /* redisTemplate.opsForHash().putAll("USERDATAAUTH"+user.getId().toString(),user.getAuthmap());*///将该用户的数据访问权限信息存入缓存中
+                  redisTemplate.opsForHash().putAll("USERDATAAUTH"+user.getId().toString(),user.getAuthmap());//将该用户的数据访问权限信息存入缓存中
                   redisTemplate.expire("USERINFO"+user.getId().toString(),600,TimeUnit.SECONDS);//设置token的过期时间
                   responseResult.setResuit(user);
                   responseResult.setCode(200);
